@@ -23,6 +23,7 @@ const taskSlice = createSlice({
         toggleCheck: (state, action) =>{
             if(state.tasks[action.payload].status){
                 state.tasks[action.payload].status = false;
+                localStorage.setItem("tasks", JSON.stringify(state.tasks));
                 return;
             };
             state.tasks[action.payload].status = true;
