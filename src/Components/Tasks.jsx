@@ -13,6 +13,7 @@ const Tasks = () => {
     const [add, setAdd] = useState(false);
 
     function handleAddTask(descr){
+        if(description==="") return;
         dispatch(addTasks({
             desc: descr,
             status : false,
@@ -30,7 +31,7 @@ const Tasks = () => {
                 <div className='w-[70%] flex justify-center align-center'>
                     <span className='text-[2.5rem] italic text-indigo-600'>All Tasks</span>
                 </div>
-                <button onClick={() => setAdd(true)} className=' bg-blue-300 mr-[2rem] p-[1rem] cursor-pointer border border-black-800 rounded-[1rem]'> Add a Task </button>
+                <button onClick={() => setAdd(!add)} className=' bg-blue-300 mr-[2rem] p-[1rem] cursor-pointer border border-black-800 rounded-[1rem]'> Add a Task </button>
             </div>
 
             {add && (
